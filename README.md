@@ -71,6 +71,10 @@ autotype::user |Return !0.5 :password |Return
 
 ## Changelog
 
+### 1.1 (unreleased)
+
+* Nothing changed yet.
+
 ### 1.0 (2016-10-11)
 
 * Initial release.
