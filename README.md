@@ -81,7 +81,7 @@ autotype::user |Return !0.5 :password |Return
 
 ## Changelog
 
-### 1.1 (unreleased)
+### 1.1 (2019-01-01)
 
 * Add hammerspoon implementation
 
