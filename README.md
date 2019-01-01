@@ -22,7 +22,8 @@ someone else finds it useful, too. :)
   `login:myusername` format by default, since that's
   what [qtpass](https://qtpass.org/) suggests, you might customize the
   `USER_FIELD` constant if you wish).
-* You are using Linux and have `zenity` and `xdotool` installed.
+* You are using Linux and have `zenity` and `xdotool` installed,
+  or you are using macOS and have `hammerspoon` installed.
 * Your browser includes the domain in its window title, for Firefox there are
   several plugins that do this, e.g. [keepass-helper](https://addons.mozilla.org/en-US/firefox/addon/keepass-helper/).
   (Actually, we just check if the filename is contained in the window title,
@@ -31,18 +32,27 @@ someone else finds it useful, too. :)
 
 ## Usage
 
-* Use your window manager or desktop environment to set up a keyboard shortcut
-  that launches this script. Note: If you use a nonstandard location by setting
+* Linux: Use your window manager or desktop environment to set up a keyboard shortcut
+  that launches the `pass-autotype` script. Note: If you use a nonstandard location by setting
   the `PASSWORD_STORE_DIR` environment variable, take care that it's available
   in the environment for this script (personally I call it via `bash -ic` so my
   usual shell init files are sourced).
+* macOS: Save the `hammerspoon.lua` as `~/.hammerspoon/Spoons/PassAutotype.spoon/init.lua`
+  and add something like this to your `~/.hammerspoon/init.lua`:
+
+```
+hs.loadSpoon("PassAutotype"):bindHotKeys({
+  autotype = {{"cmd", "alt"}, "a"}
+})
+```
+
 * Open a website where you want to log in and have the credentials in your
   `pass` store. Place the cursor on the username field.
 * Press the keyboard shortcut defined above
 * The username and password are typed in automatically. If there is more than
   one account for this domain, you'll be presented with a dialog to choose one.
-  
-  
+
+
 ## Autotype sequences
 
 The default sequence is `username TAB password RETURN`. You can customize this
@@ -52,7 +62,7 @@ the basics are covered. The sequence consists of tokens separated by spaces. The
 following tokens are supported:
 
 * `:user` and `:password` type in the username and password, respectively.
-* `|KEY` sends the keystroke as defined by `xdotool key` 
+* `|KEY` sends the keystroke as defined by `xdotool key`
   (e.g. `|Tab`, `|Return`)
 * `!duration` pauses for the given amount of seconds, e.g. `!0.5`
 
@@ -73,7 +83,7 @@ autotype::user |Return !0.5 :password |Return
 
 ### 1.1 (unreleased)
 
-* Nothing changed yet.
+* Add hammerspoon implementation
 
 ### 1.0 (2016-10-11)
 
