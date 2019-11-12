@@ -38,7 +38,7 @@ function obj:autotype()
     -- we wouldn't have to do this ourselves, sigh.
     -- XXX No idea why a simple "echo $PASSWORD_STORE_DIR" does not work.
     local password_store_dir = string.gsub(hs.execute(
-       "set | sed -ne '/^PASSWORD_STORE_DIR/s/.* //p'", true), "\n", "")
+       "set | sed -ne '/^PASSWORD_STORE_DIR/s/.*[ =]//p'", true), "\n", "")
     if password_store_dir == "" then
        password_store_dir = os.getenv("HOME") .. "/.password-store"
     end
