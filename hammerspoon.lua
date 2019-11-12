@@ -49,6 +49,9 @@ function obj:autotype()
         if entry ~= "" then
            entry = string.sub(entry, 0, -5)  -- cut off '.gpg' extension
            local entry_name = string.gsub(entry, self.BASENAME, "%2")
+           -- patterns don't seem to support escaping their magic characters,
+           -- so we replace them with "any char" instead.
+           entry_name = string.gsub(entry_name, '-', '.')
            if string.match(window_title, entry_name) then
               matches[#matches + 1] = string.gsub(entry, password_store_dir .. '/', '')
            end
