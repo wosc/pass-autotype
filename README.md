@@ -81,7 +81,7 @@ autotype::user |Return !0.5 :password |Return
 
 ## Changelog
 
-### 1.2 (unreleased)
+### 1.2 (2020-01-29)
 
 * Allow for whitespace around structured fields (e.g. `login: myuser`)
   because QTPass on macOS inserts a space there.
