@@ -12,8 +12,8 @@ obj.author = "Wolfgang Schnerring <wosc@wosc.de>"
 obj.homepage = "https://github.com/wosc/pass-autotype"
 obj.license = "BSD - https://opensource.org/licenses/BSD-3-Clause"
 
-obj.USER_FIELD = "^login:"
-obj.AUTOTYPE_FIELD = "^autotype:"
+obj.USER_FIELD = "^login: *"
+obj.AUTOTYPE_FIELD = "^autotype: *"
 obj.AUTOTYPE_DEFAULT = ":user |Tab :password |Return"
 obj.BASENAME = "^(.*)/([^/]*)$"
 

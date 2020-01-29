@@ -24,9 +24,9 @@ def read_entry(name):
     autotype = AUTOTYPE_DEFAULT
     for line in data:
         if line.startswith(USER_FIELD):
-            user = line.replace(USER_FIELD, '', 1)
+            user = line.replace(USER_FIELD, '', 1).strip()
         elif line.startswith(AUTOTYPE_FIELD):
-            autotype = line.replace(AUTOTYPE_FIELD, '', 1)
+            autotype = line.replace(AUTOTYPE_FIELD, '', 1).strip()
     return {
         'group': os.path.dirname(name),
         'name': os.path.basename(name),
