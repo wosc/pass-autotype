@@ -81,6 +81,10 @@ autotype::user |Return !0.5 :password |Return
 
 ## Changelog
 
+### 1.4 (unreleased)
+
+* Nothing changed yet.
+
 ### 1.3 (2023-04-09)
 
 * Update to Python-3
