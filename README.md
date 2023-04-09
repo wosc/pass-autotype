@@ -83,7 +83,7 @@ autotype::user |Return !0.5 :password |Return
 
 ### 1.3 (unreleased)
 
-* Nothing changed yet.
+* Update to Python-3
 
 ### 1.2 (2020-01-29)
 

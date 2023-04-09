@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import os
 import os.path
 import subprocess
@@ -15,7 +15,7 @@ AUTOTYPE_DEFAULT = ':user |Tab :password |Return'
 
 def cmd(command):
     return subprocess.Popen(
-        command, stdout=subprocess.PIPE, shell=True).communicate()[0].strip()
+        command, stdout=subprocess.PIPE, shell=True).communicate()[0].strip().decode('utf-8')
 
 
 def read_entry(name):
@@ -48,7 +48,7 @@ def main():
         if os.path.basename(entry)[:-4] in window_title:
             matches.append(entry.replace(PASSWORD_STORE_DIR + '/', '')[:-4])
     if not matches:
-        print 'no entry found for %s' % window_title
+        print('no entry found for %s' % window_title)
         return
 
     if len(matches) > 1:
@@ -72,7 +72,7 @@ def main():
         entry = read_entry(matches[0])
 
     if cmd('xdotool getactivewindow') != window:
-        print 'Active window has changed, aborting.'
+        print('Active window has changed, aborting.')
         return
     for item in entry['autotype'].split(' '):
         typ, arg = item[0], item[1:]
